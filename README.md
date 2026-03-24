@@ -1,6 +1,6 @@
 # Beyond — Fitness PWA
 
-A production-grade Progressive Web App workout tracker — a full Hevy clone built with React, Tailwind CSS, Zustand, and Supabase.
+A production-grade Progressive Web App workout tracker — a full fitness app built with React, Tailwind CSS, Zustand, and Supabase.
 
 ---
 
