@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    /* Prevent text scaling on mobile orientation change */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    overscroll-behavior: none;
+    /* Full height on iOS */
+    min-height: 100dvh;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 2px;
+  }
+
+  /* Number inputs — remove spinners */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  /* Reusable safe-area bottom padding */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Large tap target baseline */
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Card surface */
+  .card {
+    @apply bg-surface-900 rounded-2xl border border-surface-800;
+  }
+
+  /* Input field base */
+  .input-base {
+    @apply bg-surface-800 border border-surface-700 rounded-xl px-3 py-2.5
+           text-white placeholder-surface-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-150;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-500 active:bg-primary-700
+           text-white font-semibold rounded-xl px-4 py-3
+           transition-all duration-150 active:scale-95
+           min-h-[44px] flex items-center justify-center gap-2;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply bg-transparent hover:bg-surface-800 active:bg-surface-700
+           text-surface-300 hover:text-white font-medium rounded-xl px-4 py-3
+           transition-all duration-150 active:scale-95
+           min-h-[44px] flex items-center justify-center gap-2;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-500 active:bg-red-700
+           text-white font-semibold rounded-xl px-4 py-3
+           transition-all duration-150 active:scale-95
+           min-h-[44px] flex items-center justify-center gap-2;
+  }
+}
+
+@layer utilities {
+  /* Prevent pull-to-refresh in PWA */
+  .no-overscroll {
+    overscroll-behavior-y: contain;
+  }
+
+  /* Smooth momentum scrolling on iOS */
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+}
